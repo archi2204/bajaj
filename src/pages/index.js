@@ -29,14 +29,14 @@ export default function Home() {
   }
 
   return (
-    <main className={cn(` ${fontSans.className}`)}>
+    <main className={cn(` ${fontSans.className} bg-gray-200`)}>
       <div className="flex justify-center items-center h-screen w-screen">
         <div className="flex flex-col gap-2 w-96">
           <Input
             value='{"data":["M", "1", "334", "4", "B", "Z", "a"]}'
             onChange={(e) => setData(e.target.value)}
             type="email"
-            placeholder="Email"
+            placeholder="API  Input"
           />
           <Button
             className="w-full"

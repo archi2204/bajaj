@@ -3,7 +3,7 @@ export default function handler(req, res) {
     const { data } = req.body;
 
     // User details (hardcoded as per challenge requirements)
-    const userId = "john_doe_17091999";
+    const userId = "Archi2204";
     const email = "archisman.das2021@vitstudent.ac.in";
     const rollNumber = "21BCE0585";
 
