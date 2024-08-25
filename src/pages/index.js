@@ -1,7 +1,7 @@
 import { Inter as FontSans } from "next/font/google";
-import { Input } from "./components/ui/input";
-import { Button } from "./components/ui/button";
-import { ToggleGroup, ToggleGroupItem } from "./components/ui/toggle-group";
+import { Input } from "../components/ui/input";
+import { Button } from "../components/ui/button";
+import { ToggleGroup, ToggleGroupItem } from "../components/ui/toggle-group";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -22,16 +22,12 @@ export default function Home() {
   }, [toggleValue]);
 
   async function callApi(data) {
-    const response = await axios.post("http://127.0.0.1:3000/bfhl", data);
+    const response = await axios.post("/api/bfhl", data);
     setOutput(response.data);
   }
 
   return (
-    <main
-      className={cn(
-        `flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`
-      )}
-    >
+    <main className={cn(` ${fontSans.className}`)}>
       <div className="flex justify-center items-center h-screen w-screen">
         <div className="flex flex-col gap-2 w-96">
           <Input
