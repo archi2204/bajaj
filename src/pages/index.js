@@ -15,7 +15,9 @@ const fontSans = FontSans({
 export default function Home() {
   const [toggleValue, setToggleValue] = useState("");
   const [output, setOutput] = useState({});
-  const [data, setData] = useState("{'data': ['a', 'b']}");
+  const [data, setData] = useState(
+    '{"data":["M", "1", "334", "4", "B", "Z", "a"]}'
+  );
 
   useEffect(() => {
     console.log(toggleValue);
@@ -31,6 +33,7 @@ export default function Home() {
       <div className="flex justify-center items-center h-screen w-screen">
         <div className="flex flex-col gap-2 w-96">
           <Input
+            value='{"data":["M", "1", "334", "4", "B", "Z", "a"]}'
             onChange={(e) => setData(e.target.value)}
             type="email"
             placeholder="Email"
@@ -55,22 +58,30 @@ export default function Home() {
           </ToggleGroup>
 
           <h2 className="">Filter Response</h2>
-          {!toggleValue.includes("a") ? (
+          {toggleValue.includes("a") ? (
             <></>
           ) : (
-            <h3>Numbers: {output.numbers.join(", ")}</h3>
+            <h3>
+              Numbers:{" "}
+              {output && output.numbers ? output.numbers.join(", ") : ""}
+            </h3>
           )}
-          {!toggleValue.includes("b") ? (
+          {toggleValue.includes("b") ? (
             <></>
           ) : (
-            <h3>Alphabets: {output.alphabets.join(", ")}</h3>
+            <h3>
+              Alphabets:{" "}
+              {output && output.alphabets ? output.alphabets.join(", ") : ""}
+            </h3>
           )}
-          {!toggleValue.includes("c") ? (
+          {toggleValue.includes("c") ? (
             <></>
           ) : (
             <h3>
               Highest Lowercase Character:{" "}
-              {output.highest_lowercase_alphabet.join(", ")}
+              {output && output.highest_lowercase_alphabet
+                ? output.highest_lowercase_alphabet.join(", ")
+                : ""}
             </h3>
           )}
         </div>
